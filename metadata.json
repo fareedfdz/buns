@@ -1,0 +1,5 @@
+{
+  "name": "Boujee Buns | Premium Street Burgers",
+  "description": "Luxury aesthetic meets street-style indulgence. The most viral burgers in the city. Order now for the ultimate boujee experience.",
+  "requestFramePermissions": ["geolocation"]
+}
