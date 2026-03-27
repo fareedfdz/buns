@@ -21,10 +21,16 @@ import {
 import { MENU_ITEMS, REVIEWS, LOCATIONS } from './constants';
 import { MenuItem } from './types';
 import Hero from './components/ui/hero';
-import HeroFuturistic from './components/ui/hero-futuristic';
+import HeroLagFree from './components/ui/hero-lagfree';
 
 import { LiquidButton } from './components/ui/liquid-glass-button';
 import { TextScramble } from './components/ui/text-scramble';
+
+const Logo = ({ className = "" }: { className?: string }) => (
+  <span className={`font-cursive text-white drop-shadow-md tracking-normal normal-case ${className}`}>
+    Boujee Buns
+  </span>
+);
 
 // --- Components ---
 
@@ -49,13 +55,7 @@ const Navbar = ({ activePage, setActivePage, cartCount }: { activePage: string, 
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <button onClick={() => setActivePage('home')} className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-brand rounded-lg flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform">
-            <Crown className="text-white w-6 h-6" />
-          </div>
-          <span className="text-2xl font-display tracking-tighter">
-            <TextScramble text="BOUJEE" className="mr-2" />
-            <span className="text-brand"><TextScramble text="BUNS" /></span>
-          </span>
+          <Logo className="text-4xl" />
         </button>
 
         {/* Desktop Nav */}
@@ -102,10 +102,7 @@ const Navbar = ({ activePage, setActivePage, cartCount }: { activePage: string, 
             className="fixed inset-0 bg-charcoal z-[60] flex flex-col p-8"
           >
             <div className="flex justify-between items-center mb-12">
-              <span className="text-2xl font-display">
-                <TextScramble text="BOUJEE" className="mr-2" />
-                <span className="text-brand"><TextScramble text="BUNS" /></span>
-              </span>
+              <Logo className="text-3xl" />
               <button onClick={() => setIsMobileMenuOpen(false)}><X className="w-8 h-8" /></button>
             </div>
             <div className="flex flex-col gap-8">
@@ -273,7 +270,7 @@ const Reviews = () => {
             <span className="text-brand"><TextScramble text="Hype" /></span>
             <TextScramble text="is Real" />
           </h2>
-          <p className="text-white/50">Don't take our word for it. Ask the streets.</p>
+          <p className="text-white/50">Lahore's finest smash burgers. The taste everyone is talking about.</p>
         </div>
         <div className="flex items-center gap-4">
           <div className="text-right">
@@ -313,13 +310,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-24">
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-brand rounded-lg flex items-center justify-center rotate-12">
-                <Crown className="text-white w-6 h-6" />
-              </div>
-              <span className="text-3xl font-display tracking-tighter">
-                <TextScramble text="BOUJEE" className="mr-2" />
-                <span className="text-brand"><TextScramble text="BUNS" /></span>
-              </span>
+              <Logo className="text-4xl" />
             </div>
             <p className="text-white/40 max-w-sm mb-8 leading-relaxed">
               Redefining fast food with a luxury edge. We're not just a burger joint; we're a lifestyle brand for the bold and the hungry.
@@ -344,7 +335,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-4 text-white/40 text-sm">
               <li>hello@boujeebuns.com</li>
               <li>+1 (555) BOU-JEE1</li>
-              <li>123 Luxury Lane, Metro City</li>
+              <li>DHA Phase 5, Lahore</li>
             </ul>
           </div>
         </div>
@@ -406,8 +397,8 @@ const ViralSection = () => {
 const HomePage = ({ onAddToCart, onNavigate }: { onAddToCart: (i: MenuItem) => void, onNavigate: (p: string) => void, key?: string }) => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <HeroFuturistic 
-        title="BOUJEE BUNS" 
+      <HeroLagFree 
+        title="Boujee Buns" 
         subtitle="Luxury ingredients. Street attitude." 
         onOrder={() => onNavigate('menu')} 
         onViewMenu={() => onNavigate('menu')} 
